@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Colors, Typography, Spacing, BorderRadius, Shadows } from '@/constants/theme';
+import { useUserStore } from '@/stores/userStore';
 
 const { width } = Dimensions.get('window');
 
@@ -23,9 +24,14 @@ export default function AuthScreen() {
   const router = useRouter();
 
   const handleAuth = () => {
-    // For Phase 1, we'll just navigate to the main app
-    // In future phases, actual authentication will be implemented
-    router.replace('/(tabs)');
+    // Store user credentials in the user store
+    useUserStore.getState().setUserCredentials(
+      isSignUp ? name : 'User',
+      email
+    );
+    
+    // Navigate to class selection
+    router.replace('/(auth)/class-selection');
   };
 
   const toggleMode = () => {
