@@ -1,10 +1,24 @@
 // NCERT Curriculum Data Structure
 // Classes 1-12+ with all subjects, chapters, and topics
 
+export interface ConceptCardContent {
+  bullets: string[];
+  summary: string;
+}
+
+export interface ConceptCard {
+  id: string;
+  title: string;
+  icon: string;
+  content: ConceptCardContent;
+  animated?: boolean;
+}
+
 export interface Topic {
   id: string;
   title: string;
   description?: string;
+  conceptCards?: ConceptCard[];
 }
 
 export interface Chapter {
@@ -277,7 +291,55 @@ const middleSchoolSubjects: Subject[] = [
         number: 1,
         title: 'Real Numbers',
         topics: [
-          { id: 'math-ms-1-1', title: 'Euclid\'s Division Lemma', description: 'Fundamental theorem' },
+          {
+            id: 'math-ms-1-1',
+            title: 'Understanding Whole Numbers',
+            description: 'Learning about numbers from 0 onwards',
+            conceptCards: [
+              {
+                id: 'cc-wn-1',
+                title: 'What is a Whole Number?',
+                icon: '0️⃣',
+                content: {
+                  bullets: [
+                    'Whole numbers are 0, 1, 2, 3, 4, ...',
+                    'They include zero and all positive integers',
+                    'Whole numbers do not include fractions or decimals',
+                    'They form the foundation of counting and arithmetic'
+                  ],
+                  summary: 'Whole numbers are the basic numbers we use for counting, starting from 0 and going upwards. They are the building blocks of mathematics.'
+                }
+              },
+              {
+                id: 'cc-wn-2',
+                title: 'Properties of Whole Numbers',
+                icon: '➕',
+                content: {
+                  bullets: [
+                    'Closure property: Sum and product of whole numbers is always a whole number',
+                    'Commutative property: a + b = b + a and a × b = b × a',
+                    'Associative property: (a + b) + c = a + (b + c)',
+                    'Identity element: 0 is the additive identity, 1 is the multiplicative identity'
+                  ],
+                  summary: 'Whole numbers follow specific rules that make calculations predictable and consistent. These properties help us solve problems efficiently.'
+                }
+              },
+              {
+                id: 'cc-wn-3',
+                title: 'Historical Significance',
+                icon: '📚',
+                content: {
+                  bullets: [
+                    'The concept of zero was developed in ancient India',
+                    'Brahmagupta was the first to define zero as a number around 628 CE',
+                    'The number system we use today is called the Hindu-Arabic numeral system',
+                    'Whole numbers have been used for thousands of years for trade and measurement'
+                  ],
+                  summary: 'Understanding whole numbers connects us to the rich history of mathematics across different civilizations.'
+                }
+              }
+            ]
+          },
           { id: 'math-ms-1-2', title: 'Fundamental Theorem of Arithmetic', description: 'Prime factorization' },
           { id: 'math-ms-1-3', title: 'Rational Numbers', description: 'Understanding rationals' },
           { id: 'math-ms-1-4', title: 'Decimal Expansion', description: 'Non-terminating decimals' },

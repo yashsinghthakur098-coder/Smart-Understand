@@ -86,14 +86,17 @@ export default function ChapterScreen() {
   }, [isHydrated, selectedClass, selectedStream, subjectId, chapterId, isPathway]);
 
   const handleTopicPress = (topic: Topic) => {
-    // Navigate to lesson/concept card view (placeholder for now)
     router.push({
-      pathname: '/(tabs)/two',
+      pathname: '/(tabs)/lesson/[subject]/[chapter]/[topic]',
       params: {
         topicId: topic.id,
         topicTitle: topic.title,
         subject: subjectId,
+        subjectName: subjectName,
         chapter: chapterId,
+        chapterNumber: chapterNumber,
+        chapterTitle: chapterTitle,
+        isPathway: isPathway ? 'true' : 'false',
       },
     });
   };
