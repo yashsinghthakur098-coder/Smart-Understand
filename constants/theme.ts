@@ -14,6 +14,7 @@ export const Colors = {
   // Opacity variants
   primaryOpacity: (opacity: number) => `rgba(90, 139, 111, ${opacity})`,
   textOpacity: (opacity: number) => `rgba(44, 44, 44, ${opacity})`,
+  whiteOpacity: (opacity: number) => `rgba(255, 255, 255, ${opacity})`,
 };
 
 // Typography
