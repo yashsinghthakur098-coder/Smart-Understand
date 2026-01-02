@@ -67,6 +67,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="compass" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="calculator"
+        options={{
+          title: 'Calculator',
+          tabBarIcon: ({ color }) => <FontAwesome name="calculator" size={24} color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
